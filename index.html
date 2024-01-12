@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento de Materiais</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h1 class="text-center mb-4">Orçamento de Materiais</h1>
+    <form id="orcamentoForm">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="categoria">Escolha a categoria:</label>
+                <select class="form-control" id="categoria" onchange="showSubcategorias()">
+                    <option value="">Selecione uma categoria</option>
+                    <option value="cabeceiras">Cabeceiras</option>
+                    <option value="base">Base</option>
+                    <option value="colchoes">Colchões</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6" id="subcategoriasContainer">
+                <!-- Aqui serão adicionadas as subdivisões -->
+            </div>
+            
+            <div class="form-group col-md-6" id="subcategoriasAdicionaisContainer">
+                <!-- Conteúdo futuro pode ser adicionado aqui -->
+            </div>            
+            
+            <div class="form-group col-md-6" id="quantidadeContainer" style="display: none;">
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" class="form-control" id="quantidade" min="1">
+            </div>            
+        </div>
+        <button type="button" class="btn btn-primary" onclick="preencherFormulario()">Preencher Formulário</button>
+        <table class="table mt-3" id="tabelaItens">
+            <thead>
+                <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Quantidade</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaItensBody">
+                <!-- Aqui serão adicionadas as linhas da tabela -->
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-success" onclick="calcularOrcamento()">Orçar</button>
+        
+        <!-- Adicione uma tabela para exibir o resultado do orçamento -->
+        <!-- Tabela para mostrar o orçamento -->
+        <table class="table mt-3" id="tabelaOrcamento" style="display: none;">
+            <thead>
+                <tr>
+                    <th scope="col">Material</th>
+                    <th scope="col">Quantidade Total</th>
+                    <th scope="col">Custo Total</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaOrcamentoBody">
+                <!-- Aqui serão adicionadas as linhas da tabela de orçamento -->
+            </tbody>
+        </table>
+        
+        <!-- Adicione uma área para exibir o valor total do orçamento -->
+        <div class="mt-4">
+            <strong>Total do Orçamento: R$</strong> <span id="totalOrcamento">0.00</span>
+        </div>
+    </form>
+    <div id="resultado" class="mt-4">
+        <!-- Aqui será exibido o resultado do orçamento -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script> <!-- Adicione scripts conforme necessário -->
+</body>
+</html>
